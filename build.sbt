@@ -75,3 +75,8 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser"
 ).map(_ % circeVersion)
 
+
+
+resolvers in Global ++= Seq(
+  "Sbt plugins"                   at "https://dl.bintray.com/sbt/sbt-plugin-releases"
+)
