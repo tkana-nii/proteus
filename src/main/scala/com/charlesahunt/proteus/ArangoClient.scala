@@ -140,6 +140,7 @@ class ArangoClient(host: String = "localhost", port: Int = 8529, https: Boolean 
   def createCollection(dbName: String, collectionName: String): Future[Either[Throwable, CollectionResponse]] = Future {
     val postData = Collection(collectionName)
     val response: HttpResponse[String] = auth(Http(s"$arangoHost/$db/$dbName/$api/collection").postData(postData.asJson.noSpaces)).asString
+
     decode[CollectionResponse](response.body) match {
       case Right(ok) =>
         if(ok.error) error(errorMessage(ok.errorMessage))

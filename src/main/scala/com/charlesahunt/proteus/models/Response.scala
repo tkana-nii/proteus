@@ -68,7 +68,7 @@ case class Error(
 )
 
 case class CollectionResponse(
-  id : String,
+  id : Option[String],
   error : Boolean,
   code : Int,
   name : Option[String],

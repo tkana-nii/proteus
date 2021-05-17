@@ -2,7 +2,7 @@ import scala.io.Source
 
 name := "proteus"
 
-organization := "com.charlesahunt"
+organization := "jp.ac.nii"
 
 description := "Scala driver for ArangoDB"
 
@@ -20,9 +20,10 @@ scalacOptions ++= Seq("-feature")
 
 credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
-sonatypeProfileName := "com.charlesahunt"
+//sonatypeProfileName := "jp.ac.nii"
+organization := "jp.ac.nii"
 
-useGpg := false
+// useGpg := false
 
 publishTo := {
    val nexus = "https://oss.sonatype.org/"
@@ -35,10 +36,14 @@ publishTo := {
 pomExtra in Global := {
    <url>http://www.cornfluence.com</url>
       <scm>
-         <url>git@github.com:CharlesAHunt/proteus.git</url>
-         <connection>scm:git@github.com:CharlesAHunt/proteus.git</connection>
+         <url>git@github.com:tkana-nii/proteus.git</url>
+         <connection>scm:git@github.com:tkana-nii/proteus.git</connection>
       </scm>
       <developers>
+         <developer>
+            <id>nii-tkana</id>
+            <name>T. Kanazawa</name>
+         </developer>
          <developer>
             <id>CharlesAHunt</id>
             <name>Charles A Hunt</name>
@@ -59,7 +64,8 @@ shellPrompt := { state => scala.Console.YELLOW + "[" + scala.Console.CYAN + Proj
 
 libraryDependencies ++= {
   Seq(
-    "ch.qos.logback" % "logback-classic" % "1.1.7",
+    "ch.qos.logback" % "logback-classic" % "1.2.3",
+    "ch.qos.logback" % "logback-core" % "1.2.3",
     "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0",
     "org.scalaj" %% "scalaj-http" % "2.3.0",
     "org.scalatest" %% "scalatest" % "3.0.1" % "test",
@@ -67,7 +73,8 @@ libraryDependencies ++= {
   )
 }
 
-val circeVersion = "0.6.1"
+//val circeVersion = "0.6.1"
+val circeVersion = "0.10.0"
 
 libraryDependencies ++= Seq(
   "io.circe" %% "circe-core",
@@ -75,3 +82,4 @@ libraryDependencies ++= Seq(
   "io.circe" %% "circe-parser"
 ).map(_ % circeVersion)
 
+//assemblySettings
